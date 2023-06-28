@@ -19,7 +19,7 @@ public class MultiCatchTest {
 
 }
 
-class MultiCatchTest2{
+class MultiCatchTest2 {
 	public static void main(String[] args) {
 		boolean x = true;
 		try{

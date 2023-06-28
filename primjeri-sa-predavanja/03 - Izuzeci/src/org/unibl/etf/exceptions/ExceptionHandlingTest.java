@@ -17,12 +17,12 @@ public class ExceptionHandlingTest {
 	public static int method() {
 		try { // 6
 			System.out.println("try from method...");
-			return 1; // 7
+            return 1; // 7
 		} catch (Exception e) { // 8
 			e.printStackTrace();
-		} finally { // 9
-			System.out.println("finally from method...");
-			return 3; // 10
-		}
+        } finally { // 9
+            System.out.println("finally from method...");
+            return 3; // 10
+        }
 	}
 }

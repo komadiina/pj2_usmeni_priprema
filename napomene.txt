@@ -25,5 +25,16 @@
 	- izvrsavanje uslova se zaustavlja CIM SE NAIDJE NA [FALSE] EVALUACIJU: (T1 && T2 && F3 && T4) === T1 && T2 && F3
 	(T1 || F2 || T3 || F4) === T1
 
-
 -- metoda moze imati isto ime kao i sama klasa --> ne zajebati se
+
+-- ako u try {...} bloku ima return:
+	- RETURN SE NE VRACA ODMA AKO ima finally {...} blok
+		- try 'stane kod return', izvrsi se finally, pa opet kod return se nastavi izvrsavanje	
+	- RETURN SE VRACA ODMA AKO nema finally, i ako nije bacen exception
+	- BILO STA poslije return u try je UNREACHABLE
+
+- ako u finally {...} bloku ima return:
+	- TAJ RETURN SE UVIJEK IZVRSAVA
+	- return koji je 'stao u try bloku' se nece izvrsiti, jer: finally blok se [uvijek] izvrsava
+
+
