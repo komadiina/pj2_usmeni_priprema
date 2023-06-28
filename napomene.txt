@@ -1,0 +1,29 @@
+- int[][] x = new int[C][]; -- ne treba navoditi drugi argument, ne baca compile-time gresku
+	- ali pristupanje x[i][j] baca nullpointerexception
+- null pointer access u main metodi ne mora biti prijavljen
+	Car audi = null;
+	audi.start(); // Ne baca compile-time, nego run-time
+
+- System.gc() -> system GarbageCollect
+	- ne garantuje uklanjanje dostupnosti referencama
+	- finalize() metode objekata se pozivaju pri garbage-collectovanju
+
+- inicijalizacioni blokovi se izvrsavaju redom navodjenja
+- staticki inicijalizacioni blokovi se izvrsavaju samo jednom, pri ucitavanju klase u memoriju (i.e. prije nego sto se stvore objekti te klase)
+- REDOSLIJED IZVRSAVANJA statickog inic. bloka zavisi od njihove hronoloske vrijednosti, A NE OD REDOSLIJEDA DEKLARACIJA
+	ClassB { static { "b" } } ... ClassA { static { "a" } }
+	main { new ClassA() ... new ClassB() ... } -> "a" "b"
+
+- redoslijed inicijalizacije i instanciranja klasa:
+	1. staticki inicijalizacioni blokovi svih klasa u hijerarhiji, pocevsi od najvise
+	2. clanovi nadklase	
+	3. nestaticki inicijalizacioni blok nadklase
+	4. konstruktor nadklase
+	5. clanovi, nestaticki inic i konstruktor klase
+
+- shortcircuiting uslova:
+	- izvrsavanje uslova se zaustavlja CIM SE NAIDJE NA [FALSE] EVALUACIJU: (T1 && T2 && F3 && T4) === T1 && T2 && F3
+	(T1 || F2 || T3 || F4) === T1
+
+
+-- metoda moze imati isto ime kao i sama klasa --> ne zajebati se
