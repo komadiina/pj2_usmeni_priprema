@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class StreamExamples3 {
 	public static void main(String[] args) throws IOException {
-		List<Product> products = Arrays.asList(new Product("Shoes A", "Running Shoes", 20),
+		List<Product> products = Arrays.asList(new Product("Shoes A.java", "Running Shoes", 20),
 				new Product("Shoes B", "Running Shoes", 55), new Product("Shoes C", "Soccer", 30),
 				new Product("Shoes D", "Soccer", 20), new Product("Shoes E", "Hiking", 55),
 				new Product("Shoes F", "Hiking", 30));

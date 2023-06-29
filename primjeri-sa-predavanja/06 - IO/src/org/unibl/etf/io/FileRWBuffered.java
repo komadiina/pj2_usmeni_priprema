@@ -8,7 +8,8 @@ import java.io.PrintWriter;
 
 public class FileRWBuffered {
 		public static void main(String[] args) throws IOException {
-			try (BufferedReader br = new BufferedReader(new FileReader("studenti.txt")); PrintWriter pw = new PrintWriter(new FileWriter("test.txt"), "UTF-8")) {
+			try (BufferedReader br = new BufferedReader(new FileReader("studenti.txt"));
+				 PrintWriter pw = new PrintWriter(new FileWriter("test.txt"))) {
 				String line;
 				while((line = br.readLine())!=null) {
 					System.out.println(line);

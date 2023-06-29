@@ -1,0 +1,100 @@
+-------- ispisi --------
+[OL1OL2]
+	[P1]
+static A
+static B
+non - static B
+Constructor B
+non - static B
+Constructor B
+non - static A
+Constructor A
+non - static B
+Constructor B
+	
+	[P2]
+-1
+0
+0 // x
+0 // y
+2 // x = 2
+3
+
+	[P7]
+// i = 1
+// n = (i = 2) % 5 = 2
+2 // nema newl
+// n = 2 % 4 = 2, i = 1
+2 // nema newl
+// n = 1 % 2 = 1, i = 2
+2 // nema newl
+
+[primjeri]
+	[Klasa0]
+// staticki inic nista, x je lokalno tu
+// x = 0, y = 0
+// x = -1
+-1 0
+// y = ++(-1) = 0, x = 0
+0 0
+// 1 + 1 = 2, x = 2
+2
+3
+--> pravi ispis:
+-1 0
+0 0
+2
+3
+
+	[Klasa1]
+// nema (prazan main)
+
+	[Klasa1/2/4/5] - comp.err.
+
+	[Klasa7]
+CE1 - 1
+catch 2
+CE1 - 1
+CE2 - 2
+catch 1
+finally
+CE3 - 1
+main:RuntimeError (CE3 bacen)
+	
+	[Klasa21]
+// nista
+
+[primjeri2]
+	[A1]	
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+a2
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+a2
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+metoda2 a2
+a3
+metoda a1
+metoda a3
+metoda2 a2
+
+
+
+
+
+
+
+
+
+

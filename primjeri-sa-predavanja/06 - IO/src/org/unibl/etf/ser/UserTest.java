@@ -20,12 +20,12 @@ public class UserTest {
 		oos.close();
 		Thread.sleep(3000);
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users2.txt"));
-		User user2 = (User) ois.readObject();
-//		User2 user2 = (User2) ois.readObject();
-//		User3 user2 = (User3) ois.readObject();
-//		User4 user2 = (User4) ois.readObject();
-//		User5 user2 = (User5) ois.readObject();
-//		User6 user2 = (User6) ois.readObject();
+		User user0 = (User) ois.readObject();
+		User2 user2 = (User2) ois.readObject();
+		User3 user3 = (User3) ois.readObject();
+		User4 user4 = (User4) ois.readObject();
+		User5 user5 = (User5) ois.readObject();
+		User6 user6 = (User6) ois.readObject();
 		System.out.println(user2.getUsername());
 		System.out.println(user2.getPassword());
 //		System.out.println(user2.getAge());

@@ -1,0 +1,140 @@
+-------- ispisi --------
+[OL1OL2]
+	[P1]
+static A
+static B
+non - static B
+Constructor B
+non - static B
+Constructor B
+non - static A
+Constructor A
+non - static B
+Constructor B
+	
+	[P2]
+-1
+0
+0 // x
+0 // y
+2 // x = 2
+3
+
+	[P7]
+// i = 1
+// n = (i = 2) % 5 = 2
+2 // nema newl
+// n = 2 % 4 = 2, i = 1
+2 // nema newl
+// n = 1 % 2 = 1, i = 2
+2 // nema newl
+
+[primjeri]
+	[Klasa0]
+// staticki inic nista, x je lokalno tu
+// x = 0, y = 0
+// x = -1
+-1 0
+// y = ++(-1) = 0, x = 0
+0 0
+// 1 + 1 = 2, x = 2
+2
+3
+--> pravi ispis:
+-1 0
+0 0
+2
+3
+
+	[Klasa1]
+// nema (prazan main)
+
+	[Klasa1/2/4/5] - comp.err.
+
+	[Klasa7]
+CE1 - 1
+catch 2
+CE1 - 1
+CE2 - 2
+catch 1
+finally
+CE3 - 1
+main:RuntimeError (CE3 bacen)
+	
+	[Klasa21]
+// nista
+
+[primjeri2]
+	[A1]	
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+a2
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+a2
+a1-n
+a1
+a1-n
+a1
+a2(a1)
+metoda2 a2
+a3
+metoda a1
+metoda a3
+metoda2 a2
+
+	[C1]
+ce1 - 2
+ce2 - 2
+c2 - ce2
+0
+exception
+finally
+ce1 - 2
+c2 - ce2
+0
+
+	[Klasa20]
+// threadovi, nzm jel ispis il crtanje al eo ispis
+Klasa20()
+first
+
+// [0]
+// id: 1
+Thread2()
+Thread3()
+
+// [1]
+// id: 10, c++ -> c = 12
+Thread2()
+
+// [2]
+// id: 3
+Thread2()
+Thread3()
+
+thread id 1 se pokrece (odbrojava 1 -:- 6)
+thread id 10 se pokrece (odbrojava 1 -:- 6, ceka se na njega)
+thread id 3 se pokrece (odbrojava 1 -:- 6, ceka se na njega -> nije demonska nit)
+last // prije ili poslije, zavisi od schedulera
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

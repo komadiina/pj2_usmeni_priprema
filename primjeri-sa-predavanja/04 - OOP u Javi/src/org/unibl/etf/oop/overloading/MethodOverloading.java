@@ -23,4 +23,3 @@ public class MethodOverloading {
 		m.method(null);
 	}
 }
-

@@ -15,7 +15,6 @@ public class Piano implements LoudInstrument {		// 1
 		Instrument instrument = piano;		   		// 3
 		LoudInstrument loudInstrument = piano;		// 4
 		instrument.play();
+		loudInstrument.volumeUp();
 	}
 }
-
-

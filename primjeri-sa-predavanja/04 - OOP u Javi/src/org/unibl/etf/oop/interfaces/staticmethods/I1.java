@@ -15,12 +15,13 @@ class A extends B implements I1 {
 		I1.staticMethodI1();								// 3
 //		staticMethodI1();
 		B.staticMethodB();
+		A a = new A();
+		a.method1();
 	}
 
 	@Override
 	public void method1() {
 		// TODO Auto-generated method stub
-		
 	}
 }
 

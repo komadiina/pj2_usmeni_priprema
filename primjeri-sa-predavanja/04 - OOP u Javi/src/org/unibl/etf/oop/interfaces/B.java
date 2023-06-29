@@ -1,7 +1,6 @@
 package org.unibl.etf.oop.interfaces;
 
 public class B extends A implements I1, I2 { // 1
-
 	
 	@Override
 	public void method2() {
@@ -18,9 +17,24 @@ public class B extends A implements I1, I2 { // 1
 		A b2 = new B();
 		I1 b3 = new B();
 		I2 b4 = new B();
+
 		b1.method1();
 		b1.method2();
 		b1.method3();
+
+		System.out.println("x");
+
+		b2.method1();
+
+		System.out.println("x");
+
+		b3.method1();
+		b3.method2();
+
+		System.out.println("x");
+
+		b4.method1();
+		b4.method3();
 	}
 }
 
@@ -39,5 +53,3 @@ interface I2 {
 	void method1(); 						// 4
 	void method3();
 }
-
-

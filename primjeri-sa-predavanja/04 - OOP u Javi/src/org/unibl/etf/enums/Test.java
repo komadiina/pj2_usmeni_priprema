@@ -45,7 +45,7 @@ public class Test {
 		for (DayInWeek dayInWeek : DayInWeek.values()) {
 			System.out.println(dayInWeek);
 		}
-		DayInWeek days[] = DayInWeek.values(); // 1
+		DayInWeek[] days = DayInWeek.values(); // 1
 		for (int i = 0; i < days.length; i++) {
 			System.out.println(days[i]);
 		}

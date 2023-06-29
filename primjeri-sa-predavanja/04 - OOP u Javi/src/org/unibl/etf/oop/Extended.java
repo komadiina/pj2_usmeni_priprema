@@ -12,9 +12,11 @@ public class Extended extends Base {
 //	public void method3() throws Exception{						// 2
 //		System.out.println("method3, Extended class");
 //	}
+
 	public void method3(){										// 3
 		System.out.println("method3, Extended class");
 	}
+
 //	public void method3() throws IOException, SQLException{		// 4
 //		System.out.println("method3, Extended class");
 //	}		

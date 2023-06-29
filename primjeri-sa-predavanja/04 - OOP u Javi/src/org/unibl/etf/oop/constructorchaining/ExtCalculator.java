@@ -3,7 +3,7 @@ package org.unibl.etf.oop.constructorchaining;
 public class ExtCalculator extends Calculator {
 	protected int operand3, operand4;
 
-	ExtCalculator(){														// 1
+	ExtCalculator() {														// 1
 		super();															
 		System.out.println("Ext - No args constructor...");
 	}
@@ -19,4 +19,3 @@ public class ExtCalculator extends Calculator {
 		ExtCalculator calculator = new ExtCalculator();
 	}
 }
-

@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class Test {
 
 	public static void main(String[] args) throws Exception {
-		ArrayList<Student> studenti = new ArrayList<Student>();
+		ArrayList<Student> studenti = new ArrayList<>();
 		BufferedReader br = new BufferedReader(new FileReader("studenti.txt"));
 		String linija;
 		while((linija=br.readLine())!=null){

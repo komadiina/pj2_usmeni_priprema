@@ -1,6 +1,6 @@
 package org.unibl.etf.clonemethod;
 
-public class CloneTest { // implements Cloneable 
+public class CloneTest { // implements Cloneable
 	int a;
 	double b;
 	
