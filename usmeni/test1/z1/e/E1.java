@@ -15,8 +15,12 @@ public class E1 extends Thread {
 
     public void run() {
         System.out.println("Start...");
-        E1[] niz = {new E2(1), new E2(2), new E3("3"),
-                new E2(4), new E3("5")};
+        E1[] niz = {
+                new E2(1),
+                new E2(2),
+                new E3("3"),
+                new E2(4),
+                new E3("5")};
         for (E1 e : niz) {
             if (e.isDaemon()) {
                 new Thread(e).start();

@@ -19,9 +19,11 @@ public class E1 extends Thread {
             E2 e2 = new E2(101);
             e2.start();
             e2.join();
+
             E1 e1 = new E1();
             e1.start();
             e1.join();
+
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -30,8 +32,14 @@ public class E1 extends Thread {
 
     public void run() {
         System.out.println("Start...");
-        E1[] niz = {new E2(1), new E2(e2), new E3("3"),
-                new E2(4), new E3("5")};
+        E1[] niz = {
+                new E2(1),
+                new E2(e2),
+                new E3("3"),
+                new E2(4),
+                new E3("5")
+        };
+
         for (E1 e : niz) {
             if (e instanceof E1 && e.e2 != null) {
                 try {
@@ -95,7 +103,6 @@ class E2 extends E1 implements Runnable {
 }
 
 class E3 extends E2 {
-
     public E3(String s) {
         super(new Integer(s + ""));
     }

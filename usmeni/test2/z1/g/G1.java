@@ -6,22 +6,27 @@ public class G1 {
     public static void main(String args[]) throws Exception {
         G2 g2 = new G2();
         G3 g3 = new G3("a");
+
         ObjectOutputStream cout =
                 new ObjectOutputStream(new FileOutputStream("G1.out"));
         cout.writeObject(g2);
         cout.writeObject(g3);
+
         ObjectInputStream cin =
                 new ObjectInputStream(new FileInputStream("G1.out"));
         G2 g22 = (G2) cin.readObject();
         System.out.println(g22.a + "\n" + g22.b);
+
         G3 g33 = (G3) cin.readObject();
         System.out.println(g33.a + "\n" + g33.b);
+
+
         cin.close();
     }
 }
 
 class G2 implements Externalizable {
-     int a = 1;
+    int a = 1;
     transient int b = 2;
 
     public G2() {

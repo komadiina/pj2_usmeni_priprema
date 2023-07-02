@@ -1,7 +1,8 @@
 package usmeni.u20100908.f1;
 
 // F1.java
-/*public class F1 {
+/*
+public class F1 {
     public static void main(String[] args) {
         FT1<F2> ft1 = new FT1<F2>();
         ft1.metoda(new F2("Java"));
@@ -34,4 +35,5 @@ interface FTI<G> {
     public void metoda(G t);
 
     public G metoda();
-}*/
+}
+*/

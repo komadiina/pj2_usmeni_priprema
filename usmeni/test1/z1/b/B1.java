@@ -24,6 +24,7 @@ public class B1 implements BI2 {
         b2.close();
         b4.print("b3");
         ((BI1) b3).close();
+
         try (B3 b5 = new B3("a")) {
             b5.print("Zadnja linija?");
         }

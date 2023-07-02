@@ -32,4 +32,4 @@ class Klasa6 extends Klasa5 {
     public int razlika() {
         return y - x;
     }
-}
+}*/

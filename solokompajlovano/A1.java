@@ -1,56 +1,159 @@
-package usmeni.primjeri2.A1;
+package usmeni.Z23;
 
-public class A1 {
-    private A1 a1;
+// A1.java
+
+import java.io.Serializable;
+
+class A1 {
+    public static void main(String[] args) {
+        A4 a4 = new A4();
+        System.out.println("============================");
+        a4.metoda1();
+        System.out.println("============================");
+        a4.metoda2();
+        System.out.println("============================");
+        ((A2) a4).metoda1();
+        System.out.println("============================");
+        ((A2) a4.a3).metoda2();
+        System.out.println("============================");
+
+        A5 a5 = new A5();
+        System.out.println("============================");
+        ((A3) ((A1) new A5())).metoda2();
+    }
+    
+    static {
+        new A2(); // TODO: staviti new a3(), new A1() unutra
+        System.out.println("A1-S");
+    }
 
     {
-        System.out.println("A1-N");
+        System.out.println("A1-N1");
     }
+
+    private A1 a1;
 
     public A1() {
-        System.out.println("A1");
+        System.out.println("A1()");
     }
 
-    void metoda() {
-        System.out.println("metoda A1");
+    public A1(A1 a1) {
+        this();
+        System.out.println("A1(A1)");
+        this.a1 = a1;
+        new A2(a1);
     }
 
-    public static void main(String[] args) {
-        A3 a3 = new A3();
-        a3.metoda();
-        a3.metoda2();
+    public void metoda1() {
+        new A1();
+        System.out.println("A1.metoda1()");
+    }
+
+    {
+        System.out.println("A1-N2");
     }
 }
 
-class A2 extends A1 {
-    A1 a1;
+class A2 extends A1 implements Serializable {
 
-    public A2() {
-        this(new A1());
-        System.out.println("A2");
+    static {
+        System.out.println("A2-S");
+    }
+
+    {
+        System.out.println("A2-N");
+    }
+
+    protected A2() {
+        System.out.println("A2()");
+        this.metoda1();
     }
 
     public A2(A1 a1) {
-        this.a1 = a1;
         System.out.println("A2(A1)");
+        a1.metoda1();
+    }
+
+    @Override
+    public void metoda1() {
+        super.metoda1();
+        System.out.println("A2.metoda1()");
     }
 
     public void metoda2() {
-        System.out.println("metoda2 A2");
+        System.out.println("A2.metoda2()");
     }
 }
 
 class A3 extends A2 {
-    private A1 a = new A2();
-    private A2 a2 = new A2(new A1());
 
-    public A3() {
-        a2.metoda();
-        System.out.println("a3");
-        a.metoda();
+    A2 a2 = null;
+
+    static {
+        System.out.println("a3-S");
     }
 
-    public void metoda() {
-        System.out.println("metoda a3");
+    {
+        System.out.println("a3-N1");
+    }
+
+    public A3() {
+        super();
+        System.out.println("a3()");
+    }
+
+    public A3(A2 a2) {
+        this();
+        this.a2 = a2;
+        System.out.println("a3(A2)");
+    }
+
+    {
+        System.out.println("a3-N2");
+    }
+
+    public A3(A1 a1, A2 a2) {
+        this(a2);
+        System.out.println("a3(A1,A2)");
+    }
+
+    public void metoda2() {
+        System.out.println("a3.metoda()");
+    }
+}
+
+class A4 extends A3 {
+
+    A1 a1 = new A1();
+    A3 a2 = new A3(new A1(new A1()), new A2(a1));
+    Serializable a3 = new A3();
+
+    static {
+        System.out.println("A4-S");
+    }
+
+    public A4() {
+        super();
+        System.out.println("A4()");
+        super.metoda1();
+    }
+
+    {
+        System.out.println("A4-N");
+    }
+}
+
+class A5 extends A1 {
+    static {
+        System.out.println("A5-S");
+    }
+
+    public A5() {
+        super();
+        System.out.println("A5()");
+    }
+
+    {
+        System.out.println("A5-N");
     }
 }

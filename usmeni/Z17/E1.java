@@ -12,13 +12,21 @@ class E1 extends Thread {
 
     public static void main(String[] args) {
         System.out.println("MainThread");
+
         new E1().start();
     }
 
     public void run() {
         System.out.println("Start...");
-        E1[] niz = {new E2(1), new E2(0), new E3("3"),
-                new E2(4), new E3("10")};
+
+        E1[] niz = {
+                new E2(1),
+                new E2(0),
+                new E3("3"),
+                new E2(4),
+                new E3("10")
+        };
+
         for (E1 e : niz) {
             if (e.isDaemon()) {
                 new Thread(e).run();
@@ -32,9 +40,9 @@ class E1 extends Thread {
                 }
             }
         }
+
         System.out.println("End");
     }
-
 }
 
 class E2 extends E1 implements Runnable {

@@ -1,13 +1,12 @@
 package usmeni.Z6;
 
-
 //1300MB
 class A {
     public long[] longs = new long[10_000_000]; // 80
     public char[] chars = new char[15_000_000]; // 30
     public A a;
     public B b = new B();
-    public A[] am[] = new A[2][3];
+    public A[][] am = new A[2][3];
     public int id;
     static int globalId = 1;
 
@@ -34,15 +33,20 @@ class A {
         A a3 = new A(a2);
         B b1 = new B();
         A a4 = new A(a1, b1);
+
         a4.am[0][0] = new A(a4);
         a4.am[0][1] = new A(a4.am[0][0], new B());
+
         a1 = a2 = a3 = null;
+
         a4.am[1][0] = new A(); // Trebalo bi da ovdje bude OutOfMemoryError
         System.gc(); // 680 MB
+
         A tmp[] = new A[3];
         tmp[0] = new A(); // 850
         tmp[1] = new A(tmp[1], b1); // 1020
         tmp[2] = new A(tmp[0]); // 1190
+
         b1 = null;
         a4.am[0] = tmp;
         a4.am[0][0] = null;

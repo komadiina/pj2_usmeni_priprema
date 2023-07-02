@@ -1,18 +1,6 @@
 package usmeni.u20100908.a1.a3;
 
 // A2.java
-public class A2 extends A3 {
-    public A2() {
-        System.out.println("A2()");
-    }
-
-    public void metoda() {
-        this.metoda();
-        super.metoda();
-        System.out.println(a++);
-    }
-}
-
 class A3 {
     double a;
     int b;
@@ -25,5 +13,17 @@ class A3 {
 
     public void metoda() {
         System.out.println(a + b++);
+    }
+}
+
+public class A2 extends A3 {
+    public A2() {
+        System.out.println("A2()");
+    }
+
+    public void metoda() {
+        this.metoda();
+        super.metoda();
+        System.out.println(a++);
     }
 }

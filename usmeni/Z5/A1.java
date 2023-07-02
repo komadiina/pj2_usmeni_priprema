@@ -25,6 +25,18 @@ public class A1 {
         new A2(a1);
     }
 
+    public static void main(String[] args) {
+        A4 a4 = new A4();
+        a4.metoda1();
+        a4.metoda2();
+
+        ((A2) a4).metoda1();
+        ((A2) a4.a3).metoda2();
+
+        Serializable a5 = new A5();
+        ((A3) a5).metoda2();
+    }
+
     public void metoda1() {
         System.out.println("A1.metoda1()");
     }
@@ -89,17 +101,6 @@ class A4 extends A3 {
         super();
         System.out.println("A4()");
         super.metoda1();
-    }
-
-
-    public static void main(String[] args) {
-        A4 a4 = new A4();
-        a4.metoda1();
-        a4.metoda2();
-        ((A2) a4).metoda1();
-        ((A2) a4.a3).metoda2();
-        Serializable a5 = new A5();
-        ((A3) a5).metoda2();
     }
 }
 

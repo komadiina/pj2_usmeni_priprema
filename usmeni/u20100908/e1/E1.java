@@ -3,8 +3,10 @@ package usmeni.u20100908.e1;
 public class E1 {
     static public void main(String[] args) {
         System.out.println("main 1");
+
         E3 e3 = new E3();
         E2 e2 = new E2(e3);
+
         e2.start();
         System.out.println("main 2");
     }

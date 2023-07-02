@@ -1,18 +1,14 @@
-package usmeni.primjeri.Klasa1;
+package usmeni.test2.z3.a;
 
 public class Klasa1 {
-    int i = 0;
-
-    public static void main(String argv[]) {
-        Klasa1 kl = new Klasa1();
-    }
-
-    Klasa1() {
-        top:
-            while (i < 2) {
-            System.out.println(i);
-            i++;
-            continue top;
+    public static void main(String[] args) {
+        int i = 0;
+        int j = 10;
+        int k = 0;
+        while (i++ < 5 || --j > 3) {
+            System.out.printf("i: %1$d | j: %2$d | k: %3$d%n", i,j,k);
+            k += i + j;
         }
+        System.out.println(k);
     }
 }

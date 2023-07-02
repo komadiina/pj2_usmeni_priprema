@@ -1,6 +1,6 @@
 package usmeni.u20100908.g1;
-
-/*public class G1 {
+/*
+public class G1 {
     int i;
 
     {

@@ -11,9 +11,12 @@ class T5 {
                 System.out.println("1");
             }
         }.m2();
+
         System.out.println("=1=");
+
         TB tb = new TB();
         tb.m1();
+
         System.out.println("=2=");
     }
 }
@@ -51,8 +54,6 @@ abstract class TA implements T2 {
     public void m2() {
         System.out.println("2");
     }
-
-
 }
 
 class TB extends TA {
@@ -68,6 +69,4 @@ class TB extends TA {
             throw new RuntimeException(e);
         }
     }
-
-
 }

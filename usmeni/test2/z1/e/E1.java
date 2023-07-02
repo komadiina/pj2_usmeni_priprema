@@ -18,8 +18,14 @@ public class E1 extends Thread implements EI {
     }
 
     public static void main(String argv[]) throws Exception {
-        Runnable[] niz = {new E1(), new E1(),
-                new Thread(), new E1(), new Thread()};
+        Runnable[] niz = {
+                new E1(),
+                new E1(),
+                new Thread(),
+                new E1(),
+                new Thread()
+        };
+
         System.out.println("First line");
         for (Runnable r : niz) {
             System.out.println("Checking...");
@@ -29,15 +35,17 @@ public class E1 extends Thread implements EI {
                     System.out.println("Starting background thread...");
                     new Thread(r);
                 } else {
-                    if (t instanceof EI)
+                    if (t instanceof EI) {
                         ((E1) t).run("arg1");
-                    else
+                    } else {
                         t.run();
+                    }
                 }
             } else {
                 new Thread(r).start();
             }
         }
+
         System.out.println("Last line");
     }
 

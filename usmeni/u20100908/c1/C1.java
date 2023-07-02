@@ -7,6 +7,7 @@ public class C1 {
 
     public static void main(String[] args) {
         C1 c1 = new C1();
+
         try {
             c1.metoda();
             System.out.println("main 1");

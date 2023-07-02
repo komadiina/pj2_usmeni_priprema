@@ -6,6 +6,7 @@ class Klasa7 {
     public static void main(String[] args) {
         Klasa7 e = new Klasa7();
         Klasa8 f = new Klasa8();
+
         try {
             f.metoda();
             e.metoda();
@@ -14,6 +15,7 @@ class Klasa7 {
         } finally {
             System.out.println("finally");
         }
+
         e.metoda2();
     }
 

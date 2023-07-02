@@ -5,7 +5,23 @@ package usmeni.Z23;
 import java.io.Serializable;
 
 class A1 {
+    public static void main(String[] args) {
+        A4 a4 = new A4();
+        System.out.println("============================");
+        a4.metoda1();
+        System.out.println("============================");
+        a4.metoda2();
+        System.out.println("============================");
+        ((A2) a4).metoda1();
+        System.out.println("============================");
+        ((A2) a4.a3).metoda2();
+        System.out.println("============================");
 
+        A5 a5 = new A5();
+        System.out.println("============================");
+        ((A3) ((A1) new A5())).metoda2();
+    }
+    
     static {
         new A2(); // TODO: staviti new a3(), new A1() unutra
         System.out.println("A1-S");
@@ -124,23 +140,6 @@ class A4 extends A3 {
 
     {
         System.out.println("A4-N");
-    }
-
-    public static void main(String[] args) {
-        A4 a4 = new A4();
-        System.out.println("============================");
-        a4.metoda1();
-        System.out.println("============================");
-        a4.metoda2();
-        System.out.println("============================");
-        ((A2) a4).metoda1();
-        System.out.println("============================");
-        ((A2) a4.a3).metoda2();
-        System.out.println("============================");
-        A5 a5 = new A5();
-        System.out.println("============================");
-        ((A3) ((A1) new A5())).metoda2();
-
     }
 }
 

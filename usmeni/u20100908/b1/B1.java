@@ -9,8 +9,10 @@ public abstract class B1 {
     public static void main(String[] args) {
         B3 b3 = new B3();
         b3.metoda();
+
         B2 b2 = b3;
         b2.metoda();
+
         B1 b1 = b2;
         b1.metoda();
     }

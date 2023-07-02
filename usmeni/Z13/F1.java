@@ -53,7 +53,9 @@ class F3<T, T2> extends F2<Integer, F3> {
     }
 
     public String getSuperModified(String num) {
-        return "" + new Double(new Integer(x + num) * 0.1);
+        return "" +
+                new Double(
+                        new Integer(x + num) * 0.1);
     }
 }
 

@@ -192,3 +192,76 @@ ne mozemo kastovati Double <-> Integer <-> bilo sta drugo istog nivoa
 - ako imamo neko CE nasljedjuje RuntimException, tada ako bacimo RuntimeException, catch (CE ex) NECE uhvatiti !!
 
 - instanceof nad nekim od operanada koji je null vraca false U V I J E K
+
+- main moze primati i String varargs/ellipsis umjesto String[]
+
+- error je throwable
+
+- ako klasa implementira SERIALIZABLE, tada se pozivom oos.writeObject(objekatA) poziva se writeObject() metoda (ne/redefinisana) iz interfejsa SERIALIZABLE
+- u suprotnom, ako klasa implementira EXTERNALIZABLE, tada u istom takvom slucaju se poziva writeExternal() i readExternal() metoda te klase
+- prilikom read-ovanje konstruise se novi objekat tog tipa, podrazumijevanim konstruktorom
+- POZIVA SE PRVI BEZ-PARAMETARSKI KONSTRUKTOR U KLASNOJ HIJERARHIJI
+"Have access to the no-arg constructor of its first nonserializable superclass"
+"During deserialization the accessible default constructor is called for the first class in the inheritance hierarchy that does not implement Serializable."
+
+
+- default kod interfejsa: mora biti defaultna implementacija tijela interfejsa
+- metode u interfejsu su podrazumijevano PUBLIC, ako klasa pokusa implementirati metodu sa 'friendly/paketskom' vidljivoscu, compile error
+
+- lambda izraz nema reference na lokalne varijable:
+The root cause is that JVM lacks mechanisms of constructing references to local variables, which is what is needed to perform idx++ when idx is an int or some immutable type (e.g. String). Since you try to mutate idx, simply capturing its value would not be sufficient; Java would need to capture a reference, and then modify the value through it.
+
+Java does not have this problem when you use an array, because arrays are reference objects. Java can capture array reference that never changes, and use that non-changing reference to mutate the object. Array itself provides the necessary level of indirection, because Java arrays are mutable.
+
+
+- JAVA STRING CACHE POOL
+- kreira jedinstvene string objekte ako se oni 'cesto' koriste
+- npr:
+	Object obj = new String("a");
+	String str = "a";
+	obj.equals(str); => true
+	obj == "a"; => false
+	str == "a"; => true
+
+- ako imamo hijerarhiju B1 -> B2 -> B3 (b3 je najizvedenija) i metodu metoda():
+	- ako B2 nema tijelo metode metoda() (apstraktna), te instanciramo tipa 
+		B2 b2 = b3 (b3 je tip B3)
+	- tada poziv b2.metoda() delegira poziv na prvu izvedenu implementaciju sa tijelom	(u ovom slucaju od b3)
+
+- podklasa ne moze preklopiti naslijedjenu metodu tako sto dodaje dodatne 'throws' klauzule - compile error
+
+- slicno kao sto cpp ima 'auto', java ima 'var'
+
+- (klase, svi threadovi) ako je natklasa u konstrutkoru podesena kao demonska nit, tada je i potklasa demonska nit. slicno vazi i za:
+	- demonske niti kreiraju demonske niti
+	- korisnicke niti kreiraju demonske niti
+
+
+TIP	| VELICINA (u bajtovima)
+byte	| 1
+char 	| 2
+short	| 2
+int	| 4
+float	| 4
+double	| 8
+long 	| 8
+-------------------
+boolean | 1 bit
+
+float[] f = new float[15_000_000] => 15 000 000 * 4 = 60 MB
+
+- String x = "AAA" -> "AAA" se ubacuje u string constant/cache pool, svaka nova varijabla String y = "AAA" pokazuje na istu adresu
+	- x == y ? => true
+- String x = new String("AAA") -> kreira se novi objekat String sa "AAA", na HEAP-U
+	- String y = new String("AAA") 
+	-> x == y ? false
+
+- ako se u throw { ... } bloku forsira bacanje izuzetka: { throw new except(); }, a u finally bloku ima return statement, TADA SE RETURN IZVRSAVA, A NE PROPAGIRA SE BACANJE IZUZETKA UNAZAD
+
+- kod deserijalizacije pozvace se neparametrisani konstruktor klase (ukoliko ga ima)
+
+- moguce je sabirati string sa Wrapper klasama -> implicitno se poziva toString() metoda wrapper klase
+
+- ukoliko se u nekom statickom inicijalizacionom bloku pojavljuje 
+	'new A5()' (recimo), 
+tada se proces ucitavanja klasa izvrsava tako STO SE KREIRA OBJEKAT A5(), PA TEK ONDA SE NASTAVLJA STATICKA INICIJALIZACIJA OSTLAIH KLASA (REDOM)

@@ -7,6 +7,7 @@ public class G1 {
     public static void main(String[] args) throws Exception {
         G3 g1 = new G3();
         G2 g2 = new G2(g1);
+
         try (ObjectOutputStream o = new ObjectOutputStream(
                 new FileOutputStream("data.bin"))) {
             o.writeObject(g1);

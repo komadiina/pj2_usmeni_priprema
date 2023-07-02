@@ -9,25 +9,31 @@ class G1 {
         G2 g2 = new G2();
         G3 g3 = new G3("a1");
         G5 g5 = new G5();
+
         ObjectOutputStream cout =
                 new ObjectOutputStream(new FileOutputStream("g1.out"));
+
         cout.writeObject(g2);
         cout.writeObject(g3);
         cout.writeObject(g5);
+
         ObjectInputStream cin =
                 new ObjectInputStream(new FileInputStream("g1.out"));
+
         G2 g22 = (G2) cin.readObject();
         System.out.println(g22.a);
         System.out.println(g22.b);
+
         G3 g33 = (G3) cin.readObject();
         System.out.println(g33.a);
         System.out.println(g33.b);
-        ;
         System.out.println(g33.value);
+
         G5 g55 = (G5) cin.readObject();
         System.out.println(g55.a);
         System.out.println(g55.naziv);
         System.out.println(g55.godine);
+
         cin.close();
     }
 }
