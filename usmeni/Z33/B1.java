@@ -17,6 +17,7 @@ class B1 implements BI1, BI2, BI1.IPrintable {
         B2 b3 = new B2(0);
         B2 b4 = new B2(1);
         B2 b5 = new B2(2);
+
         b1.print();
         b2.print();
         b3.print();
@@ -34,7 +35,7 @@ class B1 implements BI1, BI2, BI1.IPrintable {
     }
 
     public static String process(BI1 func, String str) {
-        return func.reverse(str + x);
+        return func.reverse(str + BI1.x);
     }
 }
 

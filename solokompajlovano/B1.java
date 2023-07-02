@@ -1,116 +1,89 @@
-package usmeni.Z22;
+package usmeni.Z36;
 
-// B1.java
-abstract class B1 {
-    B1() {
-        super();
+class B1 {
+    B2 b2;
+    private static int x = 10;
+    private int y = 5;
+
+    public B1() {
         System.out.println("B1()");
     }
 
+    static class B2 implements B3.B4.BI34 {
+        B3 b3;
+        private int z = 5;
+
+        public B2() {
+            System.out.println("B2()");
+        }
+
+        public int metoda() {
+            return z * 2;
+        }
+
+    }
+
+    protected static class B3 {
+        public B3() {
+            System.out.println("B3()");
+        }
+
+        public int metoda() {
+            return B1.x * 2;
+        }
+
+        class B4 extends B3 {
+            public B4() {
+                System.out.println("B4()");
+            }
+
+            public void metoda(int n) {
+                System.out.println(n);
+            }
+
+            interface BI34 {
+                int metoda();
+            }
+        }
+    }
+
+    static class B5 extends B2 {
+        B3.B4.BI34[] arr;
+
+        public B5(B3.B4.BI34... args) {
+            arr = args;
+            System.out.println("B5()");
+        }
+
+        public void izvrsi() {
+            for (B3.B4.BI34 e : arr)
+                System.out.println(e.metoda());
+        }
+
+        static class B6 extends B5 implements B3.B4.BI34 {
+            public B6() {
+                System.out.println("B6()");
+            }
+        }
+    }
+
+    protected int metoda() {
+        return x;
+    }
+
     public static void main(String[] args) {
-        B3 b3 = new B3();
-        b3.metoda();
+        B1 b1 = new B1();
+        b1.b2 = new B1.B2();
+        B1.B3 b3 = new B1.B3();
+        b1.b2.b3 = b3;
 
-        B2 b2 = b3;
-        b2.metoda();
+        System.out.println(
+                b1.metoda() + "\n" +
+                        b1.b2.metoda() + "\n" +
+                        b3.metoda() + "\n" +
+                        b1.b2.b3.metoda());
 
-        B1 b1 = b2;
-        b1.metoda();
-
-        new B2() {
-            public void metoda() {
-                System.out.println("Anonimna metoda()...");
-            }
-
-            public void m1() {
-                System.out.println("Anonimna m1()");
-            }
-        }.metoda();
-
-        B1 ref = new B3();
-        B1 test = (B1) new B3();
-
-        ref.m3();
-        test.m2();
-
-        System.out.println(ref instanceof I4);
-        if (test instanceof I4) {
-            ((I4) test).m1();
-        }
-    }
-
-    private void metoda() {
-        System.out.println("B1 metoda...");
-    }
-
-    private void m3() {
-        System.out.println("B1 m3()");
-    }
-
-    public void m2() {
-        System.out.println("B1 m2()");
-    }
-}
-
-abstract class B2 extends B1 implements I1 {
-    B2() {
-        System.out.println("B2()");
-    }
-
-    abstract protected void metoda();
-
-    void metoda2() {
-        System.out.println("B2 metoda...");
-    }
-
-    public void m2() {
-        System.out.println("B2 m2()");
-    }
-}
-
-final class B3 extends B2 implements I4 {
-    B3() {
-        super();
-        System.out.println("B3()");
-    }
-
-    public void metoda() {
-        System.out.println("B3 metoda...");
-    }
-}
-
-interface I1 {
-    String element = "PJ2";
-
-    void m1();
-}
-
-interface I4 extends I3 {
-    default void m1() {
-        System.out.println("I4 m1()");
-    }
-}
-
-interface I2 extends I1 {
-    default void m1() {
-        System.out.println("deafult m1()...");
-    }
-
-    interface I22 extends I1 {
-        String element = "PJ2";
-
-        void m2();
-
-        default void m3() {
-            System.out.println("I22 m3()");
-        }
-    }
-}
-
-interface I3 extends I2.I22 {
-    String element = "PJ2";
-
-    default void m2() {
-        System.out.println("I3 m2()");
+        B5 b5 = new B1.B5(new B5.B6(), new B2(), () -> B1.x * 2);
+        b5.izvrsi();
     }
 }

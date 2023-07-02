@@ -1,6 +1,19 @@
 package usmeni.Z24;
 
 class A1 {
+    public static void main(String[] args) {
+        A4 a4 = new A4();
+        System.out.println("===================");
+
+        a4.metoda();
+        System.out.println("===================");
+
+        A5 a5 = new A5();
+        System.out.println("===================");
+
+        ((A1) a5).metoda2();
+    }
+
     private A1 a1;
 
     static {
@@ -85,16 +98,6 @@ class A4 extends A3 {
         a.metoda();
     }
 
-    public static void main(String[] args) {
-        A4 a4 = new A4();
-        System.out.println("===================");
-        a4.metoda();
-        System.out.println("===================");
-        A5 a5 = new A5();
-        System.out.println("===================");
-        ((A1) a5).metoda2();
-    }
-
     protected void metoda() {
         System.out.println("metoda Klasa21");
     }
@@ -107,7 +110,6 @@ class A5 extends A1 {
     static {
         new A3(new A2(), new A1());
         System.out.println("A5-S");
-
     }
 
     public A5() {

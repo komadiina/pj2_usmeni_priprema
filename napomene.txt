@@ -265,3 +265,24 @@ float[] f = new float[15_000_000] => 15 000 000 * 4 = 60 MB
 - ukoliko se u nekom statickom inicijalizacionom bloku pojavljuje 
 	'new A5()' (recimo), 
 tada se proces ucitavanja klasa izvrsava tako STO SE KREIRA OBJEKAT A5(), PA TEK ONDA SE NASTAVLJA STATICKA INICIJALIZACIJA OSTLAIH KLASA (REDOM)
+
+- opet:
+	- D3 -> { D1, D2 }
+	- ako polimorfno kreiramo obj = (D3) (new D1()),
+		tada ne mozemo obj2 = (D2)obj
+		- JER JE OBJ POLIMORFNI OBLIK OBJEKTA D1, A D1 I D2 SU 
+		NA ISTOM NIVOU U KLASNOJ HIJERARHIJI, PA JE NEMOGUCE
+		KASTOVATI -> ClassCastException
+		- MOGUCE JE AKKO JE [obj == null]
+
+- klase sa privatnim konstruktorom je nemoguce instancirati vanjski, privatni konstruktori se mogu koristiti samo za delegiranje/deserijalizaciju (jvm)
+
+- class A1 {
+    static A1 a1;
+
+    static {
+        // JAKO BITNO: 
+        // U ovom slučaju se prvo izvršava new A2, jer je A u procesu kreiranja trenutno, zbog main metode
+        new A2(new A1()); 
+        System.out.println("A1-S");
+    }

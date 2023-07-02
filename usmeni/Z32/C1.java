@@ -22,6 +22,7 @@ class C1 {
         } catch (Throwable e) {
             System.out.println("main 5: " + e);
         }
+
         try {
             C2 c2 = new C2();
             c2.metoda();

@@ -22,10 +22,13 @@ class B1 implements BI1 {
     public static void main(String... argv) {
         B1 b1 = new B1();
         B1 b2 = new B2();
+
         b1.print("Nemanja");
         b2.print("Nist");
+
         b1.metodaG();
         b2.metodaG();
+
         B1 niz[] = {new B1(), (B1) new B2(), (B1) new B3("j")};
         for (var el : niz) {
             System.out.println(el);

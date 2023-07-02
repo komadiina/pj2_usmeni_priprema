@@ -1,107 +1,99 @@
-package usmeni.Z21;
+package usmeni.Z32;
 
+// C1.java
 class C1 {
-    public static C1 ref;
+    public static boolean k = false;
 
-    public C1() {
-        this(ref);
+    C1() {
         System.out.println("C1()");
     }
 
-    public C1(C1 c1) {
-        System.out.println("C1(C1)");
+    public static void main(String[] args) {
+        C1 c1 = new C1();
+        try {
+            c1.metoda();
+            System.out.println("main 1");
+        } catch (CE2 e) {
+            System.out.println("main 2: " + e);
+        } catch (CE3 e) {
+            System.out.println("main 3: " + e);
+        } catch (CE1 e) {
+            System.out.println("main 4: " + e);
+        } catch (Throwable e) {
+            System.out.println("main 5: " + e);
+        }
+
+        try {
+            C2 c2 = new C2();
+            c2.metoda();
+        } catch (CE1 e) {
+            System.out.println("Last catch.");
+        } finally {
+            System.out.println("Rezultati " + (C1.k ? "ce" : "nece") + " biti danas objavljeni");
+        }
     }
 
-    public static void main(String[] args) throws Exception {
-        C1 c1 = new C1();
-        C1 c2 = new C2();
-        ref = c1;
+    void metoda() throws Throwable {
         try {
-            System.out.println(c1.m());
-            System.out.println(c2.metoda(c2));
-            System.out.println(c2.metoda(c1));
-
-        } catch (CE2 e) {
-            System.out.println("C1- CE2 catch");
-        } catch (CE1 e) {
-            System.out.println("C1- CE1 catch");
-        } catch (Throwable e) {
-            System.out.println("exception");
+            C2 c2 = new C2();
+            c2.metoda();
+            System.out.println("C1: metoda()");
+        } catch (CE3 ce3) {
+            System.out.println("catch C1");
+            new C1().metoda();
         } finally {
             System.out.println("finally");
-        }
-        System.out.println(c2.metoda(ref));
-    }
-
-    C1 metoda(C1 c) throws CE1 {
-        System.out.println("C1 metoda");
-        C2 c2 = new C2();
-        if (c instanceof C1) {
-            System.out.println("method 1");
-        } else
-            throw new CE2();
-        return this;
-    }
-
-    int m() throws RuntimeException {
-        int x = 125691 % 3;
-        int y = 5;
-        try {
-            y = 25 / x;
-        } catch (RuntimeException ex) {
-            throw new CE1("CE1111");
-        } finally {
-            System.out.println("finally...");
-            return 1;
+            return;
         }
     }
 }
 
-class C2 extends C1 {
-
-    public C2() {
+class C2 {
+    C2() {
         System.out.println("C2()");
+        if (C1.k = !C1.k)
+            throw new CE3();
     }
 
-    C1 metoda(C1 c) throws CE1 {
-        System.out.println("C2 metoda");
-        C1 a[] = new C1[3];
-        for (int i = 0; i < 3; i++) {
-            a[i] = new C1();
-        }
-        try {
-            if (errorCheck() || c instanceof C2)
-                throw new CE2("Error 2");
-            else if (errorCheck() && c instanceof C1)
-                return a[2 + 1];
-            else
-                throw new CE2("Error 1");
-        } catch (CE1 e) {
-            System.out.println("C2 - CE2");
-        } finally {
-            ref = null;
-            return new C1();
-        }
+    void metoda() throws CE1 {
+        C3 c3 = new C3();
+        System.out.println("C2: metoda()");
+        c3.metoda();
+    }
+}
+
+class C3 {
+    C3() {
+        System.out.println("C3()");
     }
 
-    boolean errorCheck() {
-        return false;
+    protected void metoda() throws CE1 {
+        System.out.println("C3: metoda()");
+        throw new CE2("CE2");
     }
 }
 
 class CE1 extends Exception {
-    public CE1(String s) {
-        System.out.println("CE1 - 2");
+    private String name;
+
+    CE1(String s) {
+        super(s);
+        this.name = s;
+        System.out.println("CE1: " + name);
     }
 }
 
 class CE2 extends CE1 {
-    public CE2() {
-        super("s");
-    }
+    String name;
 
-    public CE2(String s) {
+    CE2(String s) {
         super(s);
-        System.out.println("CE2 - 2");
+        System.out.println("CE2: " + name);
+    }
+}
+
+class CE3 extends Error {
+    CE3() {
+        System.out.println("CE3");
     }
 }

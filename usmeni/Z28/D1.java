@@ -5,15 +5,25 @@ class D1 extends D3 implements DI {
     public static D2 d2 = new D2();
 
     public static void main(String[] args) {
-        D3 niz[] = {new D3(), new D2()};
+        D3 niz[] = {
+                new D3(),
+                new D2()
+        };
+
         for (int i = 0; i < niz.length; i++) {
             niz[i].metoda();
         }
-        DI1[] niz2 = {new D2(), new DI1() {
-            public D2 metoda2() {
+
+        DI1[] niz2 = {
+                new D2(),
+                new DI1() {
+                    public D2 metoda2() {
                 return new D2();
             }
-        }, new D2()};
+                },
+                new D2()
+        };
+
         for (int i = 0; i < niz2.length; i++) {
             niz2[i].metoda2();
         }

@@ -5,6 +5,13 @@ package usmeni.Z39;
 class A1 {
     A1 a1;
 
+    public static void main(String[] args) {
+        A4 a4 = new A4();
+        a4.a2.metoda1();
+        a4.metoda2();
+        ((A3) a4).metoda3();
+    }
+
     static {
         System.out.println("A1-S");
     }
@@ -96,13 +103,6 @@ class A3 extends A2 {
 class A4 extends A3 {
     public A4() {
         System.out.println("A4()");
-    }
-
-    public static void main(String[] args) {
-        A4 a4 = new A4();
-        a4.a2.metoda1();
-        a4.metoda2();
-        ((A3) a4).metoda3();
     }
 
     public void metoda3() {

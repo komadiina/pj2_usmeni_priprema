@@ -21,7 +21,7 @@ class A1 {
         System.out.println("============================");
         ((A3) ((A1) new A5())).metoda2();
     }
-    
+
     static {
         new A2(); // TODO: staviti new a3(), new A1() unutra
         System.out.println("A1-S");

@@ -87,7 +87,7 @@ class CE2 extends CE1 {
 }
 
 class CE3 extends Error {
-    private CE3() {
+    public CE3() {
         System.out.println("CE3");
         C1.k = !C1.k;
     }
