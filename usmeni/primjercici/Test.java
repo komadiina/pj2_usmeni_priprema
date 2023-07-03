@@ -1,4 +1,4 @@
-package usmeni.Z4;
+package usmeni.primjercici;
 
 public class Test implements I {
     public void metoda() {
@@ -7,12 +7,12 @@ public class Test implements I {
 
     public static void main(String[] args) {
         Test t = new Test();
-        t.metoda();
-        ((I)t).metoda();
+        t.metoda();         // TestMetoda
+        ((I)t).metoda();    // TestMetoda
 
         X x = new X();
-        x.metoda();
-        ((I)x).metoda();
+        x.metoda();         // IMetoda
+        ((I)x).metoda();    // IMetoda
     }
 }
 

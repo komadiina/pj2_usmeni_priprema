@@ -286,3 +286,51 @@ tada se proces ucitavanja klasa izvrsava tako STO SE KREIRA OBJEKAT A5(), PA TEK
         new A2(new A1()); 
         System.out.println("A1-S");
     }
+
+- moguca konverzija:
+	byte -> short -> int -> long -> float -> double
+	implicitno moze 'uzi' u 'siri' tip (nema gubitka informacija)
+	'siri' u 'uzi' tip MORA EKSPLICITNO
+- primitivni tipovi se prenose po vrijednosti (parametri, stek)
+- slicno i sa referencama -> kopira se REFERENCA, ali ona idalje pokazuje na isti objekat
+
+a>>>b – pomjera bitove u a u desno za b
+mjesta i ubacuje 0 bez obzira na znak a
+a = 32 = 100 = 0000 0000 0010 0000
+a>>>2 => 0000 0000 0000 1000 = 8
+a = -1 = 1111 1111 1111 1111
+a>>>3 => 0001 1111 1111 1111 = 1 + 2 + 4 + 8 + ... = kolko vec
+
+- ako je ugnjezdena klasa staticka, pristup iz okruzujuce je moguc samo preko OkruzujucaKlasa.UnutrasnjaKlasa.nesto...
+- vanjska klasa nema pristup clanovima unutrasnje klase
+- elementi nizova se cuvaju na heap-u, dok se reference na njih (niz[0], niz[1]...) cuvaju na steku
+- moguce je pristupati statickim poljima bazne klase putem izvedene klase
+- final metoda se ne moze redefinisati
+
+• redefinisana metoda može:
+– baciti manje izuzetaka ili izostaviti throws
+klauzulu,
+– baciti iste izuzetke ili
+– baciti izuzetke koji su podklase onih koji su
+bačeni u metodi koja je redefinisana
+
+- posto se privatna polja ne nasljedjuju, moze se definisati public/protected metoda koja implementira pristupanje ovim clanovima -> jedan od indirektnih nacina pristupa
+
+– kod deserijalizacije poziva se default-ni
+konstruktor, a nakon njega readExternal()
+
+-------------
+class Player2 implements Externalizable {
+    Player2() {
+        System.out.println("Player2 Constructor");
+    }
+
+(warning) Externalizable class 'Player2' has no 'public' no-arg constructor
+-------------
+
+Collection: .of() metoda vraca IMMUTABLE KOLEKCIJU
+
+- Lambde mogu referencirati (ne i modifikovati)
+lokalne varijable iz okružujuće metode
+• I dalje mogu referencirati i modifikovati promjenjive
+instance iz okružujuće klase
