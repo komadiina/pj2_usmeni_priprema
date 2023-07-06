@@ -1,6 +1,6 @@
 package usmeni.primjeri.Klasa4;
 
-/*public class Klasa4 {
+public class Klasa4 {
     int j = 1;
 
     public static void main(String args[]) {
@@ -26,4 +26,4 @@ package usmeni.primjeri.Klasa4;
         int i = j;
         System.out.println(i);
     }
-}*/
+}

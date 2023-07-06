@@ -30,7 +30,9 @@ class E1 extends Thread {
     public static void main(String[] args) {
         E1 e = new E1();
         Thread[] niz = {new E1(), new E1(), new Thread(new E1()), new E1(e), new E1(null)};
+
         System.out.println("Main start");
+
         int count = 0;
         for (int i = 0; i < niz.length; i++) {
             if (niz[i] instanceof E1) {
@@ -41,12 +43,14 @@ class E1 extends Thread {
                 niz[i].run();
                 count++;
             }
+
             if (count > 3) {
                 System.out.println("Starting all threads...");
                 runAll();
                 break;
             }
         }
+
         System.out.println("Main end");
     }
 

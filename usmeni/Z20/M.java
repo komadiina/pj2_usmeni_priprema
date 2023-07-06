@@ -53,7 +53,7 @@ class B {
     int id = 0;
     char cNiz[] = new char[10_000_000];
     int iNiz[] = new int[2_500_000];
-    // M m = new M(2); Otkomentarisati za izvorni kod!
+    M m;
 
     public B(int id) {
         this.id = (id > 1) ? id : (id + 1);
@@ -62,7 +62,7 @@ class B {
 
     public B(M m, int id) {
         this.id = id;
-        //this.m = m;
+        this.m = m;
         System.out.println("B: " + this.id);
     }
 

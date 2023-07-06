@@ -22,5 +22,4 @@ public class A {
     public static double metoda2() {
         return j++ - --i;
     }
-};
-;;
+}

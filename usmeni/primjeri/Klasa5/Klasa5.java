@@ -1,6 +1,6 @@
 package usmeni.primjeri.Klasa5;
 
-/*public class Klasa5 {
+public class Klasa5 {
     int x = 0, y = 0;
 
     Klasa5(int a, int b) {
@@ -32,4 +32,4 @@ class Klasa6 extends Klasa5 {
     public int razlika() {
         return y - x;
     }
-}*/
+}
